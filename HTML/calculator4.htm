@@ -23,55 +23,35 @@
 
 		// error checks on inputs and handling blah
 
-
 		return [input1, input2]
-		}
-
-	function add_inputs()
-		{
-		inputValues = get_inputs()
-		var calc = inputValues[0] + inputValues[1]
-		document.getElementById('result').innerHTML = calc;
-		}
-
-	function subtract_inputs()
-		{
-		inputValues = get_inputs()
-		var calc = inputValues[0] - inputValues[1]
-		document.getElementById('result').innerHTML = calc;
-		}
-
-	function multiply_inputs()
-		{
-		inputValues = get_inputs()
-		var calc = inputValues[0] * inputValues[1]
-		document.getElementById('result').innerHTML = calc;
-		}
-
-	function divide_inputs()
-		{
-		inputValues = get_inputs()
-		var calc = inputValues[0] / inputValues[1]
-		document.getElementById('result').innerHTML = calc;
 		}
 
 	function calculator_function(parameter)
 		{
-		if parameter = "add"
-			
+		inputValues = get_inputs()
+		switch(parameter) {
+  			case 'add':
+    				var calc = inputValues[0] + inputValues[1]
+    			break;
+  			case 'subtract':
+    				var calc = inputValues[0] - inputValues[1]
+    			break;
+			case 'multiply':
+				var calc = inputValues[0] * inputValues[1]
+			break;
+			case 'divide':
+				var calc = inputValues[0] / inputValues[1]
+			}
+		document.getElementById('result').innerHTML = calc;
 		}
 
 </script>
 
 <p>
-	<button type="button" onclick="add_inputs()">+</button>
-	<button type="button" onclick="calculator_function(add)">+</button>
-
-
-	<button type="button" onclick="subtract_inputs()">-</button>
-	<button type="button" onclick="multiply_inputs()">*</button>
-	<button type="button" onclick="divide_inputs()">/</button>
-	
+	<button type="button" onclick="calculator_function('add')">+</button>
+	<button type="button" onclick="calculator_function('subtract')">-</button>
+	<button type="button" onclick="calculator_function('multiply')">*</button>
+	<button type="button" onclick="calculator_function('divide')">/</button>
 </p>
 	
 <p id="result">0</p>	
