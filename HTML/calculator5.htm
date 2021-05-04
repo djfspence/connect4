@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<form>
+	<label for="userInput1">Input 1</label>
+	<input type="number" id="userInput1">
+	<br />
+	<label for="userInput2">Input 2</label>
+	<input type="number" id="userInput2">
+	<br />
+	<br />
+	<label for="userInput3">num dp</label>
+	<input type="number" id="userInput3">
+</form>
+
+<script>
+	function get_inputs()
+		{
+		var input1 = parseFloat(document.getElementById("userInput1").value);
+		var input2 = parseFloat(document.getElementById("userInput2").value);
+		var input3 = parseInt(document.getElementById("userInput3").value);
+
+		return [input1, input2, input3]
+		}
+
+
+	function write_to_output(output_string){
+		document.getElementById('output').innerHTML = output_string;
+		}
+
+	function calculator_function(parameter)
+		{
+		inputValues = get_inputs()
+		
+		if(inputValues){
+			switch(parameter) {
+  				case 'add':
+    				var calc = inputValues[0] + inputValues[1]
+    				break;
+  				case 'subtract':
+    				var calc = inputValues[0] - inputValues[1]
+    				break;
+				case 'multiply':
+					var calc = inputValues[0] * inputValues[1]
+					break;
+				case 'divide':
+					var calc = inputValues[0] / inputValues[1]
+				}
+			var calcDec = calc.toFixed(inputValues[2]);
+			write_to_output(calcDec);
+			}
+		}
+
+</script>
+
+<p>
+	<button type="button" onclick="calculator_function('add')">+</button>
+	<button type="button" onclick="calculator_function('subtract')">-</button>
+	<button type="button" onclick="calculator_function('multiply')">*</button>
+	<button type="button" onclick="calculator_function('divide')">/</button>
+</p>
+	
+<p id="output">0</p>	
+
+</body>
+
+</html>
